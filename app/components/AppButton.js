@@ -4,13 +4,15 @@ import { TouchableOpacity, StyleSheet, View, Text } from "react-native";
 import AppColors from "../config/AppColors";
 import AppText from "./AppText";
 
-function AppButton({ title, buttonColor = "white", color = "light" }) {
+function AppButton({ title, buttonColor = "white", color = "light", onPress }) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View
         style={[styles.button, { backgroundColor: AppColors[buttonColor] }]}
       >
-        <Text style={[styles.text, { color: AppColors[color] }]}>{title}</Text>
+        <AppText style={[styles.text, { color: AppColors[color] }]}>
+          {title}
+        </AppText>
       </View>
     </TouchableOpacity>
   );
@@ -26,8 +28,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 16,
-    fontFamily: "MontserratAlternates",
+    fontSize: 20,
+    fontFamily: "MontserratAlternates_400Regular",
     color: AppColors.white,
   },
 });

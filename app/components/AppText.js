@@ -1,38 +1,94 @@
-import React, { useState } from "react";
-import { Text, StyleSheet } from "react-native";
-import AppColors from "../config/AppColors";
-import * as Font from "expo-font";
+import React from "react";
+
+import { Text } from "react-native";
 import AppLoading from "expo-app-loading";
-import useFonts from "../config/useFonts";
+import {
+  useFonts,
+  MontserratAlternates_100Thin,
+  MontserratAlternates_100Thin_Italic,
+  MontserratAlternates_200ExtraLight,
+  MontserratAlternates_200ExtraLight_Italic,
+  MontserratAlternates_300Light,
+  MontserratAlternates_300Light_Italic,
+  MontserratAlternates_400Regular,
+  MontserratAlternates_400Regular_Italic,
+  MontserratAlternates_500Medium,
+  MontserratAlternates_500Medium_Italic,
+  MontserratAlternates_600SemiBold,
+  MontserratAlternates_600SemiBold_Italic,
+  MontserratAlternates_700Bold,
+  MontserratAlternates_700Bold_Italic,
+  MontserratAlternates_800ExtraBold,
+  MontserratAlternates_800ExtraBold_Italic,
+  MontserratAlternates_900Black,
+  MontserratAlternates_900Black_Italic,
+} from "@expo-google-fonts/montserrat-alternates";
 
-function AppText({ children, color = "dark" }) {
-  const [IsReady, SetIsReady] = useState(false);
+import {
+  Montserrat_100Thin,
+  Montserrat_100Thin_Italic,
+  Montserrat_200ExtraLight,
+  Montserrat_200ExtraLight_Italic,
+  Montserrat_300Light,
+  Montserrat_300Light_Italic,
+  Montserrat_400Regular,
+  Montserrat_400Regular_Italic,
+  Montserrat_500Medium,
+  Montserrat_500Medium_Italic,
+  Montserrat_600SemiBold,
+  Montserrat_600SemiBold_Italic,
+  Montserrat_700Bold,
+  Montserrat_700Bold_Italic,
+  Montserrat_800ExtraBold,
+  Montserrat_800ExtraBold_Italic,
+  Montserrat_900Black,
+  Montserrat_900Black_Italic,
+} from "@expo-google-fonts/montserrat";
 
-  const LoadFonts = async () => {
-    await useFonts();
-  };
+function AppText({ children, ...otherProps }) {
+  let [fontsLoaded] = useFonts({
+    MontserratAlternates_100Thin,
+    MontserratAlternates_100Thin_Italic,
+    MontserratAlternates_200ExtraLight,
+    MontserratAlternates_200ExtraLight_Italic,
+    MontserratAlternates_300Light,
+    MontserratAlternates_300Light_Italic,
+    MontserratAlternates_400Regular,
+    MontserratAlternates_400Regular_Italic,
+    MontserratAlternates_500Medium,
+    MontserratAlternates_500Medium_Italic,
+    MontserratAlternates_600SemiBold,
+    MontserratAlternates_600SemiBold_Italic,
+    MontserratAlternates_700Bold,
+    MontserratAlternates_700Bold_Italic,
+    MontserratAlternates_800ExtraBold,
+    MontserratAlternates_800ExtraBold_Italic,
+    MontserratAlternates_900Black,
+    MontserratAlternates_900Black_Italic,
+    Montserrat_100Thin,
+    Montserrat_100Thin_Italic,
+    Montserrat_200ExtraLight,
+    Montserrat_200ExtraLight_Italic,
+    Montserrat_300Light,
+    Montserrat_300Light_Italic,
+    Montserrat_400Regular,
+    Montserrat_400Regular_Italic,
+    Montserrat_500Medium,
+    Montserrat_500Medium_Italic,
+    Montserrat_600SemiBold,
+    Montserrat_600SemiBold_Italic,
+    Montserrat_700Bold,
+    Montserrat_700Bold_Italic,
+    Montserrat_800ExtraBold,
+    Montserrat_800ExtraBold_Italic,
+    Montserrat_900Black,
+    Montserrat_900Black_Italic,
+  });
 
-  if (!IsReady) {
-    return (
-      <AppLoading
-        startAsync={LoadFonts}
-        onFinish={() => SetIsReady(true)}
-        onError={() => {}}
-      />
-    );
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return <Text {...otherProps}>{children}</Text>;
   }
-
-  return (
-    <Text style={[styles.text, { color: AppColors[color] }]}>{children}</Text>
-  );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 16,
-    fontFamily: "MontserratAlternates",
-    color: AppColors.white,
-  },
-});
-
 export default AppText;

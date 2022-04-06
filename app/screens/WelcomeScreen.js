@@ -2,11 +2,11 @@ import React from "react";
 import { StyleSheet, View, ImageBackground, Text } from "react-native";
 
 import AppButton from "../components/AppButton";
+import AppColors from "../config/AppColors";
 import AppScreen from "../components/AppScreen";
 import AppText from "../components/AppText";
-import AppColors from "../config/AppColors";
 
-function WelcomeScreen() {
+function WelcomeScreen({ navigation }) {
   return (
     <AppScreen>
       <ImageBackground
@@ -14,11 +14,20 @@ function WelcomeScreen() {
         style={styles.background}
       >
         <View>
-          <Text style={styles.title}>FLASHBACK</Text>
+          <AppText style={styles.title}>FLASHBACK</AppText>
         </View>
         <View style={styles.button}>
-          <AppButton title="Register" />
-          <AppButton title="Login" buttonColor="light" color="white" />
+          <AppButton
+            title="Register"
+            color="black"
+            onPress={() => navigation.navigate("Register")}
+          />
+          <AppButton
+            title="Login"
+            buttonColor="light"
+            color="white"
+            onPress={() => navigation.navigate("Login")}
+          />
         </View>
       </ImageBackground>
     </AppScreen>
@@ -38,8 +47,8 @@ const styles = StyleSheet.create({
   title: {
     color: AppColors.white,
     transform: [{ rotate: "-25deg" }],
-    fontFamily: "MontserratAlternates",
-    fontSize: 26,
+    fontFamily: "MontserratAlternates_600SemiBold",
+    fontSize: 28,
   },
 });
 
