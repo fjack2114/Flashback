@@ -1,7 +1,7 @@
 import React from "react";
-
 import { Text } from "react-native";
 import AppLoading from "expo-app-loading";
+
 import {
   useFonts,
   MontserratAlternates_100Thin,

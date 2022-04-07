@@ -5,6 +5,8 @@ import LoginScreen from "../screens/LoginScreen";
 import SignUpScreen from "../screens/SignUpScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 
+import TabNavigator from "./TabNavigator";
+
 const AppStack = createStackNavigator();
 
 const AuthNavigator = () => (
@@ -22,6 +24,11 @@ const AuthNavigator = () => (
     <AppStack.Screen
       name="Register"
       component={SignUpScreen}
+      options={{ headerShown: false }}
+    />
+    <AppStack.Screen
+      name="Home"
+      component={TabNavigator}
       options={{ headerShown: false }}
     />
   </AppStack.Navigator>

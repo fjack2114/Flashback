@@ -8,7 +8,7 @@ import AppScreen from "../components/AppScreen";
 import AppTextInput from "../components/AppTextInput";
 import DisplayBox from "../components/DisplayBox";
 
-function SignUpScreen(props) {
+function SignUpScreen({ navigation }) {
   return (
     <AppScreen>
       <DisplayBox style={styles.background}></DisplayBox>
@@ -30,7 +30,12 @@ function SignUpScreen(props) {
         />
       </View>
       <View style={styles.button}>
-        <AppButton title="Sign Up" buttonColor="black" color="white" />
+        <AppButton
+          title="Sign Up"
+          buttonColor="black"
+          color="white"
+          onPress={() => navigation.navigate("Login")}
+        />
       </View>
     </AppScreen>
   );
