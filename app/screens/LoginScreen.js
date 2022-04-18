@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import AppButton from "../components/AppButton";
 import AppColors from "../config/AppColors";
@@ -10,50 +11,48 @@ import DisplayBoxLogin from "../components/DisplayBoxLogin";
 function LoginScreen({ navigation }) {
   return (
     <AppScreen>
-      <DisplayBoxLogin title="Login" color="white" />
-      <View style={styles.container}>
-        <View style={styles.filler} />
-        <AppTextInput
-          icon="email"
-          placeholder="Email   "
-          placeholderTextColor={AppColors.white}
-        />
-        <AppTextInput
-          icon="lock"
-          placeholder="Password   "
-          placeholderTextColor={AppColors.white}
-        />
-      </View>
-      <View style={styles.button}>
-        <AppButton
-          title="Login   "
-          buttonColor="black"
-          color="white"
-          onPress={() => navigation.navigate("Home")}
-        />
-      </View>
+      <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <DisplayBoxLogin title="Login" color="white" />
+
+        <View style={styles.container}>
+          <View style={styles.input}>
+            <AppTextInput
+              icon="email"
+              placeholder="Email   "
+              placeholderTextColor={AppColors.white}
+            />
+            <AppTextInput
+              icon="lock"
+              placeholder="Password   "
+              placeholderTextColor={AppColors.white}
+            />
+          </View>
+          <View style={styles.button}>
+            <AppButton
+              title="Login   "
+              buttonColor="black"
+              color="white"
+              onPress={() => navigation.navigate("Home")}
+            />
+          </View>
+        </View>
+      </KeyboardAwareScrollView>
     </AppScreen>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
-    alignSelf: "center",
-    marginTop: 550,
-    height: 125,
-    position: "absolute",
-  },
-  filler: {
-    height: 35,
-    width: 225,
+    top: 80,
   },
   container: {
+    height: 230,
     alignItems: "center",
-    height: 150,
-    position: "absolute",
+  },
+  input: {
+    top: 30,
     justifyContent: "space-between",
-    alignSelf: "center",
-    marginTop: 325,
+    height: 100,
   },
 });
 

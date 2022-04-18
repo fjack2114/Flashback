@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   topHalf: {
     width: "100%",
-    height: "50%",
+    height: 375,
     backgroundColor: AppColors.black,
     borderBottomRightRadius: 45,
     borderBottomLeftRadius: 45,

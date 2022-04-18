@@ -6,6 +6,7 @@ import SignUpScreen from "../screens/SignUpScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 
 import TabNavigator from "./TabNavigator";
+import CreateNavigator from "./CreateNavigator";
 
 const AppStack = createStackNavigator();
 

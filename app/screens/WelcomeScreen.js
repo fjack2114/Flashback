@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: "center",
     justifyContent: "space-between",
-    marginTop: 550,
+    marginTop: 525,
     height: 125,
   },
   title: {

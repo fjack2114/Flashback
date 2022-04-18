@@ -1,8 +1,9 @@
 import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import AppColors from "../config/AppColors";
 import AppText from "./AppText";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 function AppCard({ title, category, date, location, favourite, image }) {
   return (
@@ -37,7 +38,8 @@ const styles = StyleSheet.create({
   image: {
     width: 375,
     height: 125,
-    borderRadius: 25,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
   },
   text: {
     color: AppColors.black,

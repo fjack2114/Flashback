@@ -3,18 +3,25 @@ import { View, Image, StyleSheet } from "react-native";
 import AppColors from "../config/AppColors";
 import AppText from "./AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 function TitleCard({ name, image }) {
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} />
-      <AppText style={styles.text}>{name}</AppText>
-      <MaterialCommunityIcons
-        style={styles.options}
-        name="dots-horizontal"
-        size={45}
-      />
-      <MaterialCommunityIcons style={styles.sort} name="sort" size={32} />
+      <TouchableOpacity>
+        <View style={styles.options}>
+          <MaterialCommunityIcons name="dots-horizontal" size={45} />
+        </View>
+      </TouchableOpacity>
+      <View>
+        <Image source={image} style={styles.image} />
+        <AppText style={styles.text}>{name}</AppText>
+      </View>
+      <TouchableOpacity>
+        <View style={styles.sort}>
+          <MaterialCommunityIcons name="sort" size={30} />
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -26,6 +33,8 @@ const styles = StyleSheet.create({
     height: 125,
     borderRadius: 25,
     alignSelf: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 25,
   },
   image: {
@@ -35,13 +44,12 @@ const styles = StyleSheet.create({
     borderRadius: 100 / 2,
   },
   options: {
-    position: "absolute",
+    alignSelf: "flex-start",
     padding: 5,
   },
   sort: {
-    position: "absolute",
     alignSelf: "flex-end",
-    padding: 10,
+    padding: 8,
   },
   text: {
     alignSelf: "center",

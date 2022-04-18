@@ -14,6 +14,7 @@ const TabNavigator = () => (
       component={AccountScreen}
       options={{
         headerShown: false,
+        //   unmountOnBlur: true,
         tabBarIcon: () => (
           <MaterialCommunityIcons size={30} name="account-box" />
         ),

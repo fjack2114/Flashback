@@ -6,7 +6,7 @@ import MoreInfoScreen from "../screens/MoreInfoScreen";
 
 const AppStack = createStackNavigator();
 
-const AuthNavigator = ({}) => (
+const CreateNavigator = () => (
   <AppStack.Navigator>
     <AppStack.Screen
       name="PictureScreen"
@@ -16,9 +16,9 @@ const AuthNavigator = ({}) => (
     <AppStack.Screen
       name="Info"
       component={MoreInfoScreen}
-      options={{ headerShown: false }}
+      options={{ unmountOnBlur: true, headerShown: false }}
     />
   </AppStack.Navigator>
 );
 
-export default AuthNavigator;
+export default CreateNavigator;
