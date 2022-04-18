@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 5,
     flex: 1,
+    color: AppColors.white,
   },
 });
 

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   text: {
     alignSelf: "center",
-    fontFamily: "Montserrat_200ExtraLight",
+    fontFamily: "Montserrat_600SemiBold",
     fontSize: 32,
     color: AppColors.white,
   },
