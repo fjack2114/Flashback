@@ -1,18 +1,43 @@
-import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { Modal, View, Image, StyleSheet, TouchableOpacity } from "react-native";
 import AppColors from "../config/AppColors";
 import AppText from "./AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import AppButton from "./AppButton";
+import AppScreen from "./AppScreen";
+import { useNavigation } from "@react-navigation/native";
 
 function TitleCard({ name, image }) {
+  const [logout, setLogout] = useState(false);
+  const [sort, setSort] = useState(false);
+
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => setLogout(true)}>
         <View style={styles.options}>
           <MaterialCommunityIcons name="dots-horizontal" size={45} />
         </View>
       </TouchableOpacity>
+      <Modal visible={logout} animationType="slide" statusBarTranslucent={true}>
+        <AppScreen>
+          <View style={styles.buttons}>
+            <AppButton
+              title="Logout"
+              buttonColor="black"
+              color="white"
+              onPress={() => navigation.popToTop()}
+            />
+            <AppButton
+              title="Go Back"
+              buttonColor="black"
+              color="white"
+              onPress={() => setLogout(false)}
+            />
+          </View>
+        </AppScreen>
+      </Modal>
       <View>
         <Image source={image} style={styles.image} />
         <AppText style={styles.text}>{name}</AppText>
@@ -42,6 +67,14 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 100 / 2,
+  },
+  buttons: {
+    height: 150,
+    width: 200,
+    top: 300,
+    alignItems: "center",
+    justifyContent: "space-between",
+    alignSelf: "center",
   },
   options: {
     alignSelf: "flex-start",

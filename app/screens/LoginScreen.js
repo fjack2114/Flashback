@@ -99,7 +99,7 @@ function LoginScreen({ navigation }) {
                     title="Login"
                     buttonColor="black"
                     color="white"
-                    onPress={() => handleSubmit()}
+                    onPress={() => navigation.navigate("Home")}
                   />
                 </View>
               </View>

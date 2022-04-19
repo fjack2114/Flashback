@@ -8,13 +8,18 @@ import CreateNavigator from "./CreateNavigator";
 const AppTab = createBottomTabNavigator();
 
 const TabNavigator = () => (
-  <AppTab.Navigator screenOptions={{ tabBarHideOnKeyboard: true }}>
+  <AppTab.Navigator
+    screenOptions={{
+      tabBarLabelStyle: { fontFamily: "Montserrat_600SemiBold" },
+      tabBarHideOnKeyboard: true,
+    }}
+  >
     <AppTab.Screen
       name="Account"
       component={AccountScreen}
       options={{
         headerShown: false,
-        //   unmountOnBlur: true,
+
         tabBarIcon: () => (
           <MaterialCommunityIcons size={30} name="account-box" />
         ),
@@ -24,7 +29,6 @@ const TabNavigator = () => (
       name="New Memory"
       component={CreateNavigator}
       options={{
-        unmountOnBlur: true,
         headerShown: false,
         tabBarIcon: () => (
           <MaterialCommunityIcons size={30} name="play-speed" />
