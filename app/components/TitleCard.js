@@ -9,7 +9,6 @@ import { useNavigation } from "@react-navigation/native";
 
 function TitleCard({ name, image }) {
   const [logout, setLogout] = useState(false);
-  const [sort, setSort] = useState(false);
 
   const navigation = useNavigation();
 
@@ -54,7 +53,7 @@ function TitleCard({ name, image }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: AppColors.white,
-    width: 375,
+    width: 350,
     height: 125,
     borderRadius: 25,
     alignSelf: "center",

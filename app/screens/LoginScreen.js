@@ -10,6 +10,7 @@ import AppScreen from "../components/AppScreen";
 import AppTextInput from "../components/AppTextInput";
 import DisplayBoxLogin from "../components/DisplayBoxLogin";
 import AppText from "../components/AppText";
+import DataManager from "../config/DataManager";
 
 const schema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -18,9 +19,11 @@ const schema = Yup.object().shape({
 
 const users = [
   {
+    id: "user1",
     name: "Frederick Jack",
     email: "admin@flashback.com",
     password: "1234",
+    image: require("../assets/4.png"),
   },
 ];
 
@@ -29,6 +32,16 @@ const validateUser = ({ email, password }) => {
     users.filter((user) => user.email === email && user.password === password)
       .length > 0
   );
+};
+
+const getUser = ({ email }) => {
+  return users.find((user) => user.email === email);
+};
+
+const createUser = ({ email }) => {
+  let commonData = DataManager.getInstance();
+  let userID = getUser({ email }).id;
+  commonData.setUserID(userID);
 };
 
 function LoginScreen({ navigation }) {
@@ -41,10 +54,19 @@ function LoginScreen({ navigation }) {
           initialValues={{ email: "", password: "" }}
           onSubmit={(values, { resetForm }) => {
             if (validateUser(values)) {
-              navigation.navigate("Home");
+              resetForm();
+              createUser(values);
+              navigation.navigate("Home", {
+                screen: "Account",
+                params: {
+                  paramEmail: values.email,
+                  paramName: getUser(values).name,
+                  paramImage: getUser(values).image,
+                },
+              });
             } else {
               resetForm();
-              console.log(values);
+
               alert("Invalid Details");
             }
           }}
@@ -99,7 +121,7 @@ function LoginScreen({ navigation }) {
                     title="Login"
                     buttonColor="black"
                     color="white"
-                    onPress={() => navigation.navigate("Home")}
+                    onPress={handleSubmit}
                   />
                 </View>
               </View>

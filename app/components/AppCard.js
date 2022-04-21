@@ -23,7 +23,7 @@ function AppCard({ title, category, date, location, favourite, image }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: AppColors.white,
-    width: 375,
+    width: 350,
     height: 150,
     borderRadius: 25,
     alignSelf: "center",
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     marginTop: 128,
   },
   image: {
-    width: 375,
+    width: 350,
     height: 125,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,

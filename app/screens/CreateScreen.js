@@ -6,6 +6,11 @@ import AppScreen from "../components/AppScreen";
 import AppTextInput from "../components/AppTextInput";
 import AppColors from "../config/AppColors";
 import AppButton from "../components/AppButton";
+import DatePickerModal from "../components/DatePickerModal";
+
+const doErrorCheck = () => {
+  console.log();
+};
 
 function CreateScreen({ navigation }) {
   return (
@@ -17,11 +22,7 @@ function CreateScreen({ navigation }) {
           placeholderTextColor={AppColors.white}
           color="white"
         />
-        <AppTextInput
-          icon="calendar-range"
-          placeholder="Date"
-          placeholderTextColor={AppColors.white}
-        />
+        <DatePickerModal />
         <AppTextInput
           icon="map-marker"
           placeholder="Location"
@@ -42,7 +43,7 @@ function CreateScreen({ navigation }) {
           title="Create"
           buttonColor="light"
           color="white"
-          onPress={() => navigation.navigate("Info")}
+          onPress={() => doErrorCheck}
         />
       </View>
     </AppScreen>

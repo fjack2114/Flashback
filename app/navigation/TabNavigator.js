@@ -29,6 +29,7 @@ const TabNavigator = () => (
       name="New Memory"
       component={CreateNavigator}
       options={{
+        lazy: false,
         headerShown: false,
         tabBarIcon: () => (
           <MaterialCommunityIcons size={30} name="play-speed" />

@@ -29,7 +29,6 @@ function SignUpScreen({ navigation }) {
 
         <Formik
           initialValues={{ name: "", email: "", password: "" }}
-          onSubmit={(values) => console.log(values)}
           validationSchema={schema}
         >
           {({
@@ -93,7 +92,7 @@ function SignUpScreen({ navigation }) {
                     title="Sign Up"
                     buttonColor="black"
                     color="white"
-                    onPress={() => handleSubmit()}
+                    onPress={() => navigation.navigate("Home")}
                   />
                 </View>
               </View>
