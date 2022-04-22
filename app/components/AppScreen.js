@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 
 import AppColors from "../config/AppColors";

@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import AppScreen from "../components/AppScreen";
 import AppColors from "../config/AppColors";
+import AppScreen from "../components/AppScreen";
 
-function MoreInfoScreen(props) {
+function MoreInfoScreen() {
   return (
     <AppScreen style={{ backgroundColor: AppColors.black }}>
       <View style={styles.previewBox} />

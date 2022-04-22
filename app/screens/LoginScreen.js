@@ -7,10 +7,10 @@ import * as Yup from "yup";
 import AppButton from "../components/AppButton";
 import AppColors from "../config/AppColors";
 import AppScreen from "../components/AppScreen";
-import AppTextInput from "../components/AppTextInput";
-import DisplayBoxLogin from "../components/DisplayBoxLogin";
 import AppText from "../components/AppText";
+import AppTextInput from "../components/AppTextInput";
 import DataManager from "../config/DataManager";
+import DisplayBoxLogin from "../components/DisplayBoxLogin";
 
 const schema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),

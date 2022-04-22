@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppColors from "../config/AppColors";
 import AppText from "./AppText";
@@ -31,12 +30,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignSelf: "center",
     marginTop: 25,
-  },
-  heart: {
-    alignSelf: "flex-end",
-    right: 12,
-    position: "absolute",
-    marginTop: 128,
   },
   image: {
     width: 350,

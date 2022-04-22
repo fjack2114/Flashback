@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
 
+import AppCard from "../components/AppCard";
 import AppColors from "../config/AppColors";
 import AppScreen from "../components/AppScreen";
-import AppCard from "../components/AppCard";
-import TitleCard from "../components/TitleCard";
 import DataManager from "../config/DataManager";
+import TitleCard from "../components/TitleCard";
 
 function AccountScreen({ navigation, route }) {
   var getMemories = () => {
@@ -15,7 +15,6 @@ function AccountScreen({ navigation, route }) {
   };
 
   var memories = getMemories();
-  var score = 0;
 
   const [refreshing, setRefreshing] = useState(false);
   const [extraData, setExtraData] = useState(false);

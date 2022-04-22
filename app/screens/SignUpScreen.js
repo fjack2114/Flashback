@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TextInput } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -7,9 +7,9 @@ import * as Yup from "yup";
 import AppButton from "../components/AppButton";
 import AppColors from "../config/AppColors";
 import AppScreen from "../components/AppScreen";
+import AppText from "../components/AppText";
 import AppTextInput from "../components/AppTextInput";
 import DisplayBox from "../components/DisplayBox";
-import AppText from "../components/AppText";
 
 const schema = Yup.object().shape({
   name: Yup.string()

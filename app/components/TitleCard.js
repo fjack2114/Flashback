@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Modal, View, Image, StyleSheet, TouchableOpacity } from "react-native";
-import AppColors from "../config/AppColors";
-import AppText from "./AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import AppButton from "./AppButton";
-import AppScreen from "./AppScreen";
 import { useNavigation } from "@react-navigation/native";
+
+import AppButton from "./AppButton";
+import AppColors from "../config/AppColors";
+import AppScreen from "./AppScreen";
+import AppText from "./AppText";
 
 function TitleCard({ name, image }) {
   const [logout, setLogout] = useState(false);
@@ -51,6 +52,14 @@ function TitleCard({ name, image }) {
 }
 
 const styles = StyleSheet.create({
+  buttons: {
+    height: 150,
+    width: 200,
+    top: 300,
+    alignItems: "center",
+    justifyContent: "space-between",
+    alignSelf: "center",
+  },
   container: {
     backgroundColor: AppColors.white,
     width: 350,
@@ -67,14 +76,7 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 100 / 2,
   },
-  buttons: {
-    height: 150,
-    width: 200,
-    top: 300,
-    alignItems: "center",
-    justifyContent: "space-between",
-    alignSelf: "center",
-  },
+
   options: {
     alignSelf: "flex-start",
     padding: 5,

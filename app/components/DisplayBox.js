@@ -1,10 +1,10 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
 import AppColors from "../config/AppColors";
 import AppText from "./AppText";
 
-function DisplayBox({ title }) {
+function DisplayBox() {
   return (
     <View style={styles.topHalf}>
       <View style={styles.image}>

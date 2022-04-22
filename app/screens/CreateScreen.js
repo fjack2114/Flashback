@@ -3,14 +3,14 @@ import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 
+import AppButton from "../components/AppButton";
+import AppCard from "../components/AppCard";
+import AppColors from "../config/AppColors";
+import AppErrorText from "../components/AppErrorText";
 import AppScreen from "../components/AppScreen";
 import AppTextInput from "../components/AppTextInput";
-import AppColors from "../config/AppColors";
-import AppButton from "../components/AppButton";
-import DatePickerModal from "../components/DatePickerModal";
-import AppErrorText from "../components/AppErrorText";
-import AppCard from "../components/AppCard";
 import DataManager from "../config/DataManager";
+import DatePickerModal from "../components/DatePickerModal";
 
 function CreateScreen({ navigation }) {
   const [title, setTitle] = useState("");
@@ -47,7 +47,6 @@ function CreateScreen({ navigation }) {
       return;
     }
     setImage({ path: pickerResult.uri });
-    console.log(pickerResult);
   };
 
   const addMemory = () => {

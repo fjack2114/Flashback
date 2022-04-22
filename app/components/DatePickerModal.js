@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-import AppText from "./AppText";
 import AppColors from "../config/AppColors";
+import AppText from "./AppText";
 
 function DatePickerModal({ dateReturned }) {
   const [date, setDate] = useState(new Date());
@@ -30,8 +30,6 @@ function DatePickerModal({ dateReturned }) {
   const showDatepicker = () => {
     showMode("date");
   };
-
-  const data = date;
 
   return (
     <View style={styles.container}>

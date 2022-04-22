@@ -7,16 +7,16 @@ import MoreInfoScreen from "../screens/MoreInfoScreen";
 const AppStack = createStackNavigator();
 
 const CreateNavigator = () => (
-  <AppStack.Navigator>
+  <AppStack.Navigator screenOptions={{ unmountOnBlur: true }}>
     <AppStack.Screen
       name="PictureScreen"
       component={CreateScreen}
-      options={{ headerShown: false, lazy: false, unmountOnBlur: true }}
+      options={{ headerShown: false, lazy: false }}
     />
     <AppStack.Screen
       name="Info"
       component={MoreInfoScreen}
-      options={{ unmountOnBlur: true, headerShown: false }}
+      options={{ headerShown: false }}
     />
   </AppStack.Navigator>
 );
