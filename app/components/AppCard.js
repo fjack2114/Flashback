@@ -5,17 +5,20 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppColors from "../config/AppColors";
 import AppText from "./AppText";
 
-function AppCard({ title, category, date, location, favourite, image }) {
+function AppCard({ title, category, date, location, image }) {
   return (
     <View style={styles.container}>
-      <Image source={image} style={styles.image} />
+      {isFinite(image) ? (
+        <Image source={image} style={styles.image} />
+      ) : (
+        <Image source={{ uri: image.path }} style={styles.image} />
+      )}
       <AppText style={styles.text}>
         {title} - {category}
       </AppText>
       <AppText style={styles.text}>
         {date} - {location}
       </AppText>
-      <MaterialCommunityIcons name="heart" size={20} style={styles.heart} />
     </View>
   );
 }

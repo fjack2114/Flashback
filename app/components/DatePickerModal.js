@@ -6,7 +6,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import AppText from "./AppText";
 import AppColors from "../config/AppColors";
 
-function DatePickerModal(props) {
+function DatePickerModal({ dateReturned }) {
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
@@ -17,6 +17,9 @@ function DatePickerModal(props) {
     setShow(false);
     setDate(currentDate);
     setDatePicked(true);
+    dateReturned(
+      date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+    );
   };
 
   const showMode = (currentMode) => {
@@ -28,6 +31,8 @@ function DatePickerModal(props) {
     showMode("date");
   };
 
+  const data = date;
+
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons
@@ -37,8 +42,8 @@ function DatePickerModal(props) {
       />
       {!datePicked && <AppText style={styles.placeholderText}>Date</AppText>}
       {datePicked && (
-        <AppText style={styles.placeholderText}>
-          {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}
+        <AppText style={styles.textColor}>
+          {date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}
         </AppText>
       )}
       <TouchableWithoutFeedback onPress={showDatepicker}>
@@ -77,6 +82,13 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   placeholderText: {
+    fontFamily: "Montserrat_400Regular",
+    fontSize: 16,
+    marginLeft: 5,
+    marginTop: 8,
+    color: AppColors.black,
+  },
+  textColor: {
     fontFamily: "Montserrat_400Regular",
     fontSize: 16,
     marginLeft: 5,

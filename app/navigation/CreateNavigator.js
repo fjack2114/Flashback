@@ -11,7 +11,7 @@ const CreateNavigator = () => (
     <AppStack.Screen
       name="PictureScreen"
       component={CreateScreen}
-      options={{ headerShown: false, lazy: false }}
+      options={{ headerShown: false, lazy: false, unmountOnBlur: true }}
     />
     <AppStack.Screen
       name="Info"
